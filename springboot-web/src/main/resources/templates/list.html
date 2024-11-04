@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">Document</title>
+</head>
+<body>
+    <h1 th:text="${title}">Document</h1>
+    <!--<div th:if="${users.size()== 0}"> No tiene elementos usuarios!</div>-->
+    <!--<div th:if="${users.size()== 0}" th:text="${'No tiene elementos usuarios!'}"></div> -->
+    <div th:if="${users.isEmpty()}" th:text="${'No tiene elementos usuarios!'}"></div>
+
+    <table th:if ="${not users.isEmpty()}">  <!--Si no está vacio muestra la tabla-->
+        <thead>
+            <tr>
+                <th>nombre</th>
+                <th>Apellido</th>
+                <th>email</th>
+            </tr>
+        </thead>
+            <tr th:each ="user: ${users}">
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.lasname}"></td>
+                <td th:if="${user.email}" th:text="${user.email}"></td>  <!--Si es true muestra el email-->
+                <td th:if="${user.email == null}" th:text="${'n/a'}"></td> <!--Si es null muestra n/a-->
+                <td th:text="${user.email}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+</body>
+</html>
