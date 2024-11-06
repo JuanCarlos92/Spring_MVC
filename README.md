@@ -30,13 +30,11 @@ Este proyecto es una aplicación web desarrollada con **Spring Boot**, donde se 
    
 2. Entra en el directorio del proyecto:
 
-```bash
 Copiar código
 cd tu_repositorio
 
 3. Compila y ejecuta el proyecto con Maven:
 
-```bash
 Copiar código
 mvn clean install
 mvn spring-boot:run
