@@ -26,7 +26,7 @@ Este proyecto es una aplicación web desarrollada con **Spring Boot**, donde se 
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tu_usuario/tu_repositorio.git
+   https://github.com/JuanCarlos92/Spring_MVC.git
    
 2.Entra en el directorio del proyecto:
 
