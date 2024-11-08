@@ -13,12 +13,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/api/params")
 public class RequestParamsController {
 
-    @GetMapping("/foo")
+    @GetMapping("/uno")
     public ParamDto foo(@RequestParam(required = false, defaultValue = "No hay mensaje") String message){
 
         ParamDto param = new ParamDto();
         param.setMessage(message);
         return param;
     }
+    @GetMapping("/dos")
+    public ParamDto bar(@RequestParam String text, @RequestParam Integer code){
+
+        ParamDto param = new ParamDto();
+        param.setMessage(text);
+        param.setCode(code);
+        return param;
+    }
+    
+    
     
 }
