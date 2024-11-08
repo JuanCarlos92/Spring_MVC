@@ -1,4 +1,4 @@
-package com.juancarlos.curso.springboot.webapp.springboot_web;
+package com.andres.curso.springboot.webapp.springbootweb;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

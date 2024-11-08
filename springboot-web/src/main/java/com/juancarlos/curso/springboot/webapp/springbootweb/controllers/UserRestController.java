@@ -1,5 +1,6 @@
-package com.juancarlos.curso.springboot.webapp.springboot_web.controllers;
+package com.juancarlos.curso.springboot.webapp.springbootweb.controllers;
 
+// import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -9,36 +10,30 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.juancarlos.curso.springboot.webapp.springboot_web.models.User;
-import com.juancarlos.curso.springboot.webapp.springboot_web.models.dto.UserDto;
-import org.springframework.web.bind.annotation.RequestParam;
+import com.juancarlos.curso.springboot.webapp.springbootweb.models.User;
+import com.juancarlos.curso.springboot.webapp.springbootweb.models.dto.UserDto;
 
 @RestController
 @RequestMapping("/api")
 public class UserRestController {
-
-    @GetMapping("/details")
+    
+    @GetMapping(path="/details")
     public UserDto details() {
 
-        User user = new User("JuanCarlos", "Filter");
+        User user = new User("Andres", "Guzman");
 
         UserDto userDto = new UserDto();
         userDto.setUser(user);
-        userDto.setTitle("Hola mundo Spring Boot");
+        userDto.setTitle("Hola Mundo Spring Boot");
 
         return userDto;
-
     }
-
+    
     @GetMapping("/list")
-    public String getMethodName(@RequestParam String param) {
-        return new String();
-    }
-
     public List<User> list() {
-        User user = new User("JuanCarlos", "Filter");
-        User user2 = new User("JuanMiguel", "Martin");
-        User user3 = new User("Jose", "Alvarez");
+        User user = new User("Andres", "Guzman");
+        User user2 = new User("Pepe", "Doe");
+        User user3 = new User("Jhon", "Doe");
 
         List<User> users = Arrays.asList(user, user2, user3);
         // List<User> users = new ArrayList<>();
@@ -47,19 +42,17 @@ public class UserRestController {
         // users.add(user3);
 
         return users;
-
     }
-
-    @GetMapping("/details-map")
+    
+    @GetMapping(path = "/details-map")
     public Map<String, Object> detailsMap() {
+
+        User user = new User("Andres", "Guzman");
         Map<String, Object> body = new HashMap<>();
-        User user = new User("JuanC", "Filter");
 
-        body.put("title", "Hola mundo spring boot");
+        body.put("title", "Hola Mundo Spring Boot");
         body.put("user", user);
-
         return body;
-
     }
 
 }

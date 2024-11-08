@@ -1,4 +1,4 @@
-package com.juancarlos.curso.springboot.webapp.springboot_web.controllers;
+package com.juancarlos.curso.springboot.webapp.springbootweb.controllers;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-import com.juancarlos.curso.springboot.webapp.springboot_web.models.User;
+import com.juancarlos.curso.springboot.webapp.springbootweb.models.User;
 
 @Controller
 public class UserController {
@@ -17,29 +17,26 @@ public class UserController {
     @GetMapping("/details")
     public String details(Model model) {
 
-        User user = new User("JuanC", "Filter");
-        user.setEmail("correo@gmail.com");
-        model.addAttribute("title", "Hola mundo spring boot");
+        User user = new User("Andres", "Guzman");
+        user.setEmail("andres@correo.com");
+        model.addAttribute("title", "Hola Mundo Spring Boot");
         model.addAttribute("user", user);
         return "details";
-
     }
 
     @GetMapping("/list")
     public String list(ModelMap model) {
-
         model.addAttribute("title", "Listado de usuarios!");
-
         return "list";
     }
-
+    
     @ModelAttribute("users")
-    public List<User> userModel() {
+    public List<User> usersModel() {
         return Arrays.asList(
-                new User("pepa", "Gonzalez"),
-                new User("Manuel", "Jimenez"),
-                new User("Alberto", "Hebles"),
-                new User("Felix", "Ruger"));
-
+                new User("Pepa", "Gonzalez"),
+                new User("Lalo", "Perez", "lalo@correo.com"),
+                new User("Juanita", "Roe", "juana@correo.com"),
+                new User("Andres", "Doe"));
     }
+
 }
