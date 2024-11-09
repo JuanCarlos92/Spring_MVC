@@ -48,7 +48,7 @@ public class PathVariableController {
     @Autowired
     private Environment environment;
     
-    @GetMapping("/baz/{message}")
+    @GetMapping("/baz/{message}") // GET /api/var/baz/HOLAAA
     public ParamDto baz(@PathVariable String message) {
 
         ParamDto param = new ParamDto();
@@ -56,7 +56,7 @@ public class PathVariableController {
         return param;
     }
     
-    @GetMapping("/mix/{product}/{id}")
+    @GetMapping("/mix/{product}/{id}") // GET /api/var/mix/TECLADO RAZER/ 2000
     public Map<String, Object> mixPathVar(@PathVariable String product, @PathVariable Long id) {
 
         Map<String, Object> json = new HashMap<>();
@@ -66,14 +66,14 @@ public class PathVariableController {
         return json;
     }
     
-    @PostMapping("/create")
+    @PostMapping("/create") // POST /api/var/create  (CREAS UN Json y lo envias)
     public User create(@RequestBody User user) {
         // hacer algo con el usuario save en la bbdd
         user.setName(user.getName().toUpperCase());
         return user;
     }
 
-    @GetMapping("/values")
+    @GetMapping("/values") // GET /api/var/values (TODO EL VALUES)
     public Map<String, Object> values(@Value("${config.message}") String message) {
         Long code2 = environment.getProperty("config.code", Long.class);
         

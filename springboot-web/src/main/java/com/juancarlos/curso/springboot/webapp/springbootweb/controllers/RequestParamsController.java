@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpServletRequest;
 @RequestMapping("/api/params")
 public class RequestParamsController {
     
-    @GetMapping("/foo")
+    @GetMapping("/foo") // GET /api/params/foo?message=Hola
     public ParamDto foo(@RequestParam(required = false, defaultValue = "Hola que tal") String message) {
 
         ParamDto param = new ParamDto();
@@ -22,7 +22,7 @@ public class RequestParamsController {
         return param;
     }
     
-    @GetMapping("/bar")
+    @GetMapping("/bar") // GET /api/params/bar?text=Hola&code=20
     public ParamMixDto bar(@RequestParam String text, @RequestParam Integer code) {
 
         ParamMixDto params = new ParamMixDto();
@@ -31,7 +31,7 @@ public class RequestParamsController {
         return params;
     }
     
-    @GetMapping("/request")
+    @GetMapping("/request") // GET /api/params/request?code=2000&message=hola
     public ParamMixDto request(HttpServletRequest request) {
         Integer code = 10;
         try {

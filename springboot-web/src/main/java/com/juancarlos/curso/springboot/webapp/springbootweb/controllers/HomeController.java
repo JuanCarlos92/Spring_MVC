@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
     
-    @GetMapping({"", "/", "/home"})
+    @GetMapping({"", "/", "/home"}) // se puede especificar varios paths
     public String home() {
 
-        return "redirect:/list";
+        return "redirect:/list"; // redirige a la ruta /list
         // return "forward:/list";
     }
 }
